@@ -15,7 +15,6 @@ import "reflect"
 //
 // It returns false otherwise.
 func InterfaceIsStruct[S any, I any](object any) bool {
-	// --- Input Validation: Type S must be a struct ---
 	var sType S
 	structReflectionType := reflect.TypeOf(sType)
 
@@ -26,14 +25,11 @@ func InterfaceIsStruct[S any, I any](object any) bool {
 		panic("polymorphic: Type parameter S must be a struct type (or a pointer to a struct)")
 	}
 
-	// --- Input Validation: Type I must be an interface ---
 	var iType I
 	interfaceReflectionType := reflect.TypeOf(&iType).Elem()
 	if interfaceReflectionType.Kind() != reflect.Interface {
 		panic("polymorphic: Type parameter I must be an interface type")
 	}
-
-	// --- Object Validation and Type Checks ---
 
 	objectValue := reflect.ValueOf(object)
 	if !objectValue.IsValid() {
