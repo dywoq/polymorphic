@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/dywoq/polymorphic"
-)
+) 
 
 type testInterface interface {
 	value() string
