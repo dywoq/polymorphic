@@ -21,14 +21,16 @@ type Interface struct {
 // FillInterface populates the fields of the provided Interface struct with information
 // derived from the generic type T.
 //
-// If T is not an interface, or the function failed to get the current line and file, 
+// If T is not an interface, or the function failed to get the current line and file,
 // this function will panic.
-// 
+//
 // If you created an instance of Interface that way:
-// 	i := Interface{}
-// 
+//
+//	i := Interface{}
+//
 // Then you can fill the instance with FillInterface:
-// 	FillInterface[SomeInterface](&i)
+//
+//	FillInterface[SomeInterface](&i)
 func FillInterface[T any](i *Interface) {
 	tType := reflect.TypeOf(new(T)).Elem()
 

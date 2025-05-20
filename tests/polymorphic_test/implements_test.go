@@ -39,7 +39,7 @@ func TestImplements(t *testing.T) {
 
 	for _, tt := range tests {
 		if tt.got != tt.expected {
-			t.Errorf("Implements[T any]() got %t, expected %t", tt.got, tt.expected)
+			t.Errorf("Implements[T any]() got %t, expected %t (name: %s)", tt.got, tt.expected, tt.name)
 		}
 	}
 }
